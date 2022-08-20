@@ -39,7 +39,6 @@ body {
 }
 
 .date-container .date {
-  margin-top: 20px;
   font-size: 30px;
 }
 
@@ -70,15 +69,16 @@ body {
   background-color: rgba(27, 26, 26, 0.598);
   padding: 5px;
   border-radius: 10px;
-  margin-top: 30px;
+  margin-top: 20px;
   border: 1px solid white;
 }
 
+/* Debatable 
 .current-info .other-info:hover {
   background-color: rgba(27, 26, 26, 0.797);
   transform: scale(1.1);
   transition: 0.3s ease-in-out;
-}
+} */
 
 .current-info .other-info .weather-item {
   display: flex;
@@ -93,7 +93,6 @@ body {
   transform: scale(1.1);
   transition: 0.3s ease-in-out;
 }
-
 
 section {
   display: flex;
@@ -110,7 +109,12 @@ section {
   padding: 2em;
   border-radius: 30px;
   max-width: 400px;
-  margin-top: -100px;
+  position: absolute;
+  top: 45vh;
+
+  /* Also debatable
+  position: fixed;
+  bottom: 40vh; */
 }
 
 .search {
@@ -152,11 +156,6 @@ section {
   padding-top: 2px;
   height: auto;
   width: 16px;
-}
-
-.maps-btn img {
-  height: auto;
-  width: 2.3em;
 }
 
 .future-forecast {
@@ -331,10 +330,6 @@ section {
 
   .card .search button {
     height: 2em;
-    width: 2em;
-  }
-
-  .maps-btn img {
     width: 2em;
   }
 
