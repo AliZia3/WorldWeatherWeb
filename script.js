@@ -48,7 +48,6 @@ function getCustomWeatherData() {
 
 // Function that fetches weather data from OpenWeatherMap API based on users current location or based on infomration passed into search field
 getWeatherData();
-// Might have to set initial value for customLat and customLon so it doesnt give an undefined error?  (CustomLat=0, customLon=0)
 function getWeatherData() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
