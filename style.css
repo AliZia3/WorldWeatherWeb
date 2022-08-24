@@ -53,7 +53,7 @@ body {
 }
 
 .place-container .timezone {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 100;
 }
 
@@ -112,7 +112,7 @@ section {
   position: absolute;
   top: 45vh;
 
-  /* Also debatable
+  /* This Also works well 
   position: fixed;
   bottom: 40vh; */
 }
@@ -273,7 +273,7 @@ section {
   }
 
   .place-container .timezone {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .card {
