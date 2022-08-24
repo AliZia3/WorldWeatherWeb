@@ -11,8 +11,25 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 
 const API_KEY = '74087a43755a584e6bf15cc2a7edf687';
 
-// Function to determine time and date of location called at every 1 second interval
-setInterval(() => {
+
+window.onload = function () {
+    // Allows search to happen when the search button is pressed or when enter key is pressed
+    document.querySelector(".search-btn").addEventListener("click", function () {
+        getCustomWeatherData();
+    })
+    document.querySelector(".search-bar").addEventListener("keyup", function (event) {
+        if (event.key == "Enter") {
+            getCustomWeatherData()
+        }
+    })
+
+    getWeatherData();
+    setInterval(time, 1000) //Calls time function every second
+}
+
+
+// Function to determine time and date of location
+function time() {
     const time = new Date()
     const month = time.getMonth();
     const date = time.getDate();
@@ -25,8 +42,8 @@ setInterval(() => {
 
     timeEl.innerHTML = (hoursIn12 < 10 ? '0' + hoursIn12 : hoursIn12) + ':' + (minutes < 10 ? '0' + minutes : minutes) + ' ' + `<span id="am-pm">${ampm}</span>`
     dateEl.innerHTML = days[day] + ', ' + date + ' ' + months[month]
+}
 
-}, 1000);
 
 // Function that allows user to get custom weather data for own location (uses two API calls, 1 to determine coords of location and then the other for weekly forecast info) 
 function getCustomWeatherData() {
@@ -46,8 +63,8 @@ function getCustomWeatherData() {
         })
 }
 
+
 // Function that fetches weather data from OpenWeatherMap API based on users current location or based on infomration passed into search field
-getWeatherData();
 function getWeatherData() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -63,16 +80,7 @@ function getWeatherData() {
     }
 }
 
-// Allows search to happen when the search button is pressed or when enter key is pressed
-document.querySelector(".search-btn").addEventListener("click", function () {
-    getCustomWeatherData();
-})
 
-document.querySelector(".search-bar").addEventListener("keyup", function (event) {
-    if (event.key == "Enter") {
-        getCustomWeatherData()
-    }
-})
 
 // Function that dispalys the fetched weather data onto website
 function showWeatherData(data) {
@@ -139,5 +147,4 @@ function showWeatherData(data) {
     })
 
     weatherForecastEl.innerHTML = otherDayForecast;
-
 }
